@@ -26,6 +26,20 @@ function appStart() {
     index = 0; // index 초기화
   };
 
+  const updateKeyboard = (key, color) => {
+    const keyBlock = document.querySelector(
+      `.keyboard-block[data-key="${key}"]`
+    );
+    if (keyBlock) {
+      const currentColor = keyBlock.style.backgroundColor;
+      if (currentColor !== "rgb(106, 170, 100)") {
+        // "#6AAA64" in RGB
+        keyBlock.style.backgroundColor = color;
+        keyBlock.style.color = "white";
+      }
+    }
+  };
+
   // 엔터키를 눌렀을 때
   const handleEnterKey = () => {
     let 맞은_개수 = 0;
@@ -38,8 +52,17 @@ function appStart() {
       if (입력한_글자 === 정답_글자) {
         맞은_개수 += 1;
         block.style.background = "#6AAA64";
-      } else if (정답.includes(입력한_글자)) block.style.background = "#C9B458";
-      else block.style.background = "#787C7E";
+        block.classList.add("correct");
+        updateKeyboard(입력한_글자, "#6AAA64");
+      } else if (정답.includes(입력한_글자)) {
+        block.style.background = "#C9B458";
+        block.classList.add("present");
+        updateKeyboard(입력한_글자, "#C9B458");
+      } else {
+        block.style.background = "#787C7E";
+        block.classList.add("absent");
+        updateKeyboard(입력한_글자, "#787C7E");
+      }
 
       block.style.color = "white";
     }
@@ -72,6 +95,28 @@ function appStart() {
     } else if (65 <= keyCode && keyCode <= 90) {
       thisBlock.innerText = key;
       index += 1;
+      //   handleCharacterInput(key);
+    }
+  };
+
+  const handleCharacterInput = (key) => {
+    const thisBlock = document.querySelector(
+      `.board-block[data-index='${attempts}${index}']`
+    );
+    thisBlock.innerText = key;
+    index += 1;
+  };
+
+  const handleVirtualKeyClick = (event) => {
+    const key = event.target.dataset.key;
+    if (!key) return;
+
+    if (key === "ENTER") {
+      handleEnterKey();
+    } else if (key === "Backspace") {
+      handleBackspace();
+    } else if (index < 5) {
+      handleCharacterInput(key);
     }
   };
 
@@ -91,6 +136,9 @@ function appStart() {
 
   startTimer();
   window.addEventListener("keydown", handleKeydown);
+  document
+    .querySelector("footer")
+    .addEventListener("click", handleVirtualKeyClick);
 }
 
 appStart();
