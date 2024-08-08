@@ -1,0 +1,28 @@
+header {
+  border-bottom: 1px solid rgb(224, 222, 250);
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 0 10px 0 10px; */
+}
+
+.toolbar-bar3 {
+  width: 30px;
+  margin-left: 20px;
+}
+
+.toolbar-img3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toolbar-img3 img {
+  width: 30px;
+  margin-right: 10px;
+}

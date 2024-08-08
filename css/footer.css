@@ -1,0 +1,47 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+}
+
+.keyboard-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d3d6da7a;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 5px;
+  width: 48px;
+  height: 60px;
+}
+
+.keyboard-block-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  background-color: #d3d6da7a;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  padding-bottom: 5px;
+  width: 75px;
+  height: 60px;
+}
+
+.keyboard-block-2 img {
+  width: 30px;
+  padding-top: 5px;
+}

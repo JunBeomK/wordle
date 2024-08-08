@@ -1,0 +1,30 @@
+@import "footer.css";
+@import "header.css";
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 7px;
+}
+
+.board-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+}
+
+.board-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #d3d6dac2;
+  /* text-transform: capitalize; */
+  font-size: 30px;
+  font-weight: bold;
+  width: 55px;
+  height: 55px;
+}
